@@ -1,5 +1,5 @@
 # GTK Test
-<hr/><br/>
+<br/>
 
 ### Note : This isn't really a huge project I'm working on, just a GTK playground for me. <br/>
 
