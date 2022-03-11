@@ -1,7 +1,7 @@
 # GTK Test
-<hr/>
-### Note : This isn't really a huge project I'm working on, just a GTK playground for me.
-## Compiling and Running on Linux 
+<hr/><br/>
+### Note : This isn't really a huge project I'm working on, just a GTK playground for me. <br/>
+## Compiling and Running on Linux <br/>
 (might also work on MSYS2 on Windows or something I dunno)<br/>
 Run this command
 ```
