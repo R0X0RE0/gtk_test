@@ -11,3 +11,12 @@ Run this command
 ```
 gcc -o gtk_test main.c `pkg-config --cflags --libs gtk4`
 ```
+
+Now on Linux, to execute, run
+```
+./gtk_test
+```
+
+## KNOWN BUG :
+
+- Submit Button doesn't work properly (really the only reason it's on GitHub in the first place lol)
