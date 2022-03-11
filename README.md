@@ -17,6 +17,7 @@ Now on Linux, to execute, run
 ./gtk_test
 ```
 
-## KNOWN BUG :
+## KNOWN BUGS :
 
 - Submit Button doesn't work properly (really the only reason it's on GitHub in the first place lol)
+- Popover is broken
