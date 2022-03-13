@@ -19,5 +19,5 @@ Now on Linux, to execute, run
 
 ## KNOWN BUGS :
 
-- Submit Button doesn't work properly (really the only reason it's on GitHub in the first place lol)
+- Submit Button still doesn't work but now I'm getting the actual text from the entry (woohoo yay)
 - Popover is broken
