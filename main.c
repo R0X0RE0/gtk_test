@@ -20,29 +20,24 @@ exitWindow (
   gtk_window_close (window);
 }
 /*PSEUDOCODE
+  In textChanged
   Get Entry and Label objects (entryArea and userText) from builder
   Get Buffer from entry of entryArea object into variable
   Get Text from entryArea buffer
   Set Label Text using text grabbed from the entryArea widget buffer*/
 
-static void
-submit (
-  GtkWidget *widget,
+char*
+textChanged (
+  GtkEntry *entry,
   gpointer data
-)
-{
-  GtkWidget *view = gtk_text_view_new();
-  g_print("Submit button hit\n");
+) {
   GtkBuilder *builder = gtk_builder_new();
   gtk_builder_add_from_file (
     builder,
     "index.ui",
     NULL
   );
-  GObject *entry = gtk_builder_get_object (
-    builder,
-    "entryArea"
-  );
+
   GObject *userText = gtk_builder_get_object (
     builder,
     "userText"
@@ -50,16 +45,32 @@ submit (
   GtkEntryBuffer *entryBuffer = gtk_entry_get_buffer (
     GTK_ENTRY (entry)
   );
-  const char *entryText = gtk_editable_get_text (
-    GTK_EDITABLE (entry)
+  const char* testText = "This is a test";
+  const char* entryText = gtk_entry_buffer_get_text (
+    entryBuffer
   );
   g_print("This should have text from the entry : %s\n", entryText);
-  const char* testText = "This is a test";
-  gtk_text_buffer_set_text (
-    GTK_TEXT_BUFFER (userText),
-    entryText,
-    strlen(entryText)
+  
+  
+  gtk_label_set_label (
+    GTK_LABEL (userText),
+    entryText
   );
+  char * outputText = entryText;
+  gtk_label_set_label(
+    GTK_LABEL (userText),
+    entryText
+  );
+  return outputText;
+
+}
+static void
+submit (
+  GtkWidget *widget,
+  gpointer data
+)
+{
+  g_print("Submit button hit\n");
   
 }
 
@@ -93,12 +104,29 @@ activate_window (
     GTK_WINDOW (window),
     GTK_WIDGET (gtk_builder_get_object(builder, "headerTitle"))
   );
+  
+  GtkWidget *view = gtk_text_view_new();
+  
+  
+  GObject *entry = gtk_builder_get_object (
+    builder,
+    "entryArea"
+  );
+  GObject *submit = gtk_builder_get_object (
+    builder,
+    "submit"
+  );
+  
+  
+  char * entryText;
   g_signal_connect (
-    GTK_BUTTON (button),
-    "clicked",
-    G_CALLBACK (submit),
+    entry,
+    "changed",
+    G_CALLBACK (entryText = textChanged),
     NULL
   );
+  
+  
   gtk_widget_show (
     GTK_WIDGET (window)
   );
