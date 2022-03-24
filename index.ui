@@ -17,18 +17,7 @@
                         </child>
                         <child>
                             <object id="titleButton" class="GtkMenuButton">
-                                <property name="popover">
-                                    <object class="GtkPopoverMenu">
-                                        <menu id="app-menu">
-                                            <section>
-                                                <item>
-                                                    <attribute name="label" translatable="yes">_Quit</attribute>
-                                                    <attribute name="action">app.quit</attribute>
-                                                </item>
-                                            </section>
-                                        </menu>
-                                    </object>
-                                </property>
+                                <property name="popover"> menu-popover </property>
                             </object>
                         </child>
                     </object>
@@ -77,4 +66,14 @@
             </object>
         </child>
     </object>
+<object class="GtkPopoverMenu" id = "menu-popover">
+    <property name="menu-model"> app-menu </property>
+                                        
+</object>
+<menu id="app-menu">
+    <item>
+        <attribute name="label" translatable="yes">Quit</attribute>
+        <attribute name="action">app.quit</attribute>
+    </item>
+</menu>
 </interface>
